@@ -16,32 +16,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.project.ethlete.Application;
 import com.project.ethlete.domain.User;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes=Application.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes=Application.class)
 public class HttpRequestTest {
-//	@LocalServerPort
-//    private int port;
-//
-//    @Autowired
-//    private TestRestTemplate restTemplate;
-//
-//    @Test
-//    public void greetingShouldReturnDefaultMessage() throws Exception {
-//        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
-//                String.class)).contains("Hello World");
-//    }
-//    
-//    @Test
-//    public void addUserShouldReturnSavedMessage() throws Exception {
-//		User user = new User();
-//		   
-//		user.setFirstName("蒋亚晖");
-//		user.setEmail("nuwanda.jiang@dbschenker.com");
-//        HttpEntity<User> formEntity = new HttpEntity<User>(user);
-//
-//        String url = "http://localhost:" + port + "/demo/add";
-//        String result = restTemplate.postForObject(url, formEntity, String.class);
-//        assertThat(result).contains("Saved");
-//    	
-//    }
+	@LocalServerPort
+    private int port;
+
+    @Autowired
+    private TestRestTemplate restTemplate;
+
+    @Test
+    public void greetingShouldReturnDefaultMessage() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/",
+                String.class)).contains("Hello World");
+    }
+
+    @Test
+    public void addUserShouldReturnSavedMessage() throws Exception {
+		User user = new User();
+
+		user.setFirstName("蒋亚晖");
+		user.setEmail("nuwanda.jiang@dbschenker.com");
+        HttpEntity<User> formEntity = new HttpEntity<User>(user);
+
+        String url = "http://localhost:" + port + "/demo/add";
+        String result = restTemplate.postForObject(url, formEntity, String.class);
+        assertThat(result).contains("Saved");
+
+    }
 }
