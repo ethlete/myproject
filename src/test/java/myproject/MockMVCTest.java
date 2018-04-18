@@ -1,7 +1,9 @@
 package myproject;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -24,6 +27,9 @@ public class MockMVCTest {
 	
 	@Autowired
     private MockMvc mockMvc;
+
+	@Autowired
+	ObjectMapper objectMapper;
 	
 	@Test
 	public void addUser() throws Exception {
@@ -31,10 +37,12 @@ public class MockMVCTest {
 		   
 		user.setFirstName("蒋亚晖");
 		user.setEmail("nuwanda.jiang@dbschenker.com");
-        HttpEntity<User> formEntity = new HttpEntity<User>(user);
 
         String uri = "/demo/add";
-		mockMvc.perform(MockMvcRequestBuilders.post(uri, formEntity)).andExpect(status().isOk());
+//		mockMvc.perform(post(uri, formEntity)).andExpect(status().isOk());
+
+
+		mockMvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsBytes(user))).andExpect(status().isOk());
 		
 	}
 
