@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Department extends BaseEntity{
 
     private String name;
@@ -11,15 +12,10 @@ public class Department extends BaseEntity{
     private String code;
 
     @ManyToOne
-    @JoinColumn(name="parent_id")
     private Department parent;
 
-    @OneToMany(cascade= CascadeType.ALL,fetch= FetchType.LAZY)
-    @JoinColumn(name="parent_id")
+    @OneToMany(mappedBy = "parent", cascade= CascadeType.ALL, fetch= FetchType.LAZY)
     private Set<Department> children = new HashSet<>();
-
-    @OneToMany(mappedBy="department",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-    private Set<User> users = new HashSet<>();
 
     public String getName() {
         return name;
@@ -53,11 +49,4 @@ public class Department extends BaseEntity{
         this.children = children;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
 }

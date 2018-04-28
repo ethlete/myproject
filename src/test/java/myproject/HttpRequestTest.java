@@ -10,11 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.project.ethlete.Application;
 import com.project.ethlete.domain.User;
+import com.project.ethlete.domain.UserName;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes=Application.class)
@@ -34,8 +34,8 @@ public class HttpRequestTest {
     @Test
     public void addUserShouldReturnSavedMessage() throws Exception {
 		User user = new User();
-
-		user.setFirstName("蒋亚晖");
+		UserName name = new UserName();
+		name.setFirstName("蒋亚晖");
 		user.setEmail("nuwanda.jiang@dbschenker.com");
         HttpEntity<User> formEntity = new HttpEntity<User>(user);
 

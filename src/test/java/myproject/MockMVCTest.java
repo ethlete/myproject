@@ -40,7 +40,7 @@ public class MockMVCTest {
 		userName.setFirstName("蒋亚晖");
 		user.setName(userName);
 
-        String uri = "/demo/add";
+        String uri = "/user/add";
 //		mockMvc.perform(post(uri, formEntity)).andExpect(status().isOk());
 
 

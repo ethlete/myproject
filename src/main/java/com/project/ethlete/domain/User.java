@@ -21,7 +21,7 @@ public class User extends BaseEntity{
 	private String email;
 	
 	@ManyToOne
-	private Country nationality;
+	private Country country;
 
 	@ManyToMany
 	private Set<Role> roles;
@@ -69,12 +69,12 @@ public class User extends BaseEntity{
 		this.email = email;
 	}
 
-	public Country getNationality() {
-		return nationality;
+	public Country getCountry() {
+		return country;
 	}
 
-	public void setNationality(Country nationality) {
-		this.nationality = nationality;
+	public void setCountry(Country country) {
+		this.country = country;
 	}
 
 	public Set<Role> getRoles() {
@@ -92,4 +92,6 @@ public class User extends BaseEntity{
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+
+	
 }

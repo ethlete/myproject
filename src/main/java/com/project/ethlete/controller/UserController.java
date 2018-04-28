@@ -12,7 +12,7 @@ import com.project.ethlete.emun.Gender;
 import com.project.ethlete.repository.UserRepository;
 
 @RestController
-@RequestMapping(path="/demo")
+@RequestMapping(path="/user")
 public class UserController {
 	
 	@Autowired // This means to get the bean called userRepository
