@@ -1,31 +1,35 @@
 package com.project.ethlete.domain;
 
-import java.util.Date;
+import org.springframework.data.domain.Persistable;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.domain.Persistable;
+import java.util.Date;
+import java.util.UUID;
 
 @MappedSuperclass
-public abstract class BaseEntity implements Persistable<String>{
+public abstract class BaseEntity implements Persistable<UUID>{
 	
 	@Id
-	@GenericGenerator(name = "idGenerator", strategy = "uuid")
-	@GeneratedValue(generator = "idGenerator")
-	private String id;
+	@GeneratedValue
+	private UUID id;
 	
 	private Date validFrom;
 	
 	private Date validTo;
 
-	public String getId() {
+	@Override
+	public boolean isNew() {
+		return id == null;
+	}
+
+	@Override
+	public UUID getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(UUID id) {
 		this.id = id;
 	}
 
@@ -44,15 +48,4 @@ public abstract class BaseEntity implements Persistable<String>{
 	public void setValidTo(Date validTo) {
 		this.validTo = validTo;
 	}
-	
-	public boolean isNew() {
-		return this.id == null;
-	}
-
-	@Override
-	public String toString() {
-		return "Entity [id=" + id + ", validFrom=" + validFrom + ", validTo=" + validTo + "]";
-	}
-	
-
 }

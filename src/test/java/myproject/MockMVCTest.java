@@ -4,6 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.ethlete.domain.UserName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +35,10 @@ public class MockMVCTest {
 	@Test
 	public void addUser() throws Exception {
 		User user = new User();
-		   
-		user.setFirstName("蒋亚晖");
-		user.setEmail("nuwanda.jiang@dbschenker.com");
+
+		UserName userName = new UserName();
+		userName.setFirstName("蒋亚晖");
+		user.setName(userName);
 
         String uri = "/demo/add";
 //		mockMvc.perform(post(uri, formEntity)).andExpect(status().isOk());

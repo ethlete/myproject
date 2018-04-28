@@ -7,7 +7,7 @@ public class Country extends BaseEntity{
 	
 	private String name;
 	
-	private String code;
+	private String isoCode;
 
 	public String getName() {
 		return name;
@@ -17,12 +17,11 @@ public class Country extends BaseEntity{
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
+	public String getIsoCode() {
+		return isoCode;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setIsoCode(String isoCode) {
+		this.isoCode = isoCode;
 	}
-
 }

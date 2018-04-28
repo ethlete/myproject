@@ -1,63 +1,40 @@
 package com.project.ethlete.domain;
 
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import com.project.ethlete.emun.Gender;
 
-@Entity 
+@Entity
 public class User extends BaseEntity{
 
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String nativeName;
+	private UserName name;
 
 	private Gender gender;
 
-	@OneToOne(cascade=CascadeType.ALL)
-	private Title title;
+	private String employeeNo;
 
 	private Date dateOfBirth;
 
 	private String email;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Country nationality;
 
-	public String getFirstName() {
-		return firstName;
+	@ManyToMany
+	private Set<Role> roles;
+
+	@ManyToOne
+	private Department department;
+
+	public UserName getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getNativeName() {
-		return nativeName;
-	}
-
-	public void setNativeName(String nativeName) {
-		this.nativeName = nativeName;
+	public void setName(UserName name) {
+		this.name = name;
 	}
 
 	public Gender getGender() {
@@ -68,12 +45,12 @@ public class User extends BaseEntity{
 		this.gender = gender;
 	}
 
-	public Title getTitle() {
-		return title;
+	public String getEmployeeNo() {
+		return employeeNo;
 	}
 
-	public void setTitle(Title title) {
-		this.title = title;
+	public void setEmployeeNo(String employeeNo) {
+		this.employeeNo = employeeNo;
 	}
 
 	public Date getDateOfBirth() {
@@ -100,14 +77,19 @@ public class User extends BaseEntity{
 		this.nationality = nationality;
 	}
 
-	@Override
-	public String toString() {
-		return "User [firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", nativeName=" + nativeName + ", gender=" + gender + ", title=" + title + ", dateOfBirth="
-				+ dateOfBirth + ", email=" + email + ", nationality=" + nationality + ", toString()=" + super.toString()
-				+ "]";
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 
+	public Department getDepartment() {
+		return department;
+	}
 
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 }
