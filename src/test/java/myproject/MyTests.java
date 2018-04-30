@@ -1,17 +1,22 @@
 package myproject;
 
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.junit4.SpringRunner;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
-import com.project.ethlete.Application;
-
-
-//@Import(MockMVCTest.class)
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes=Application.class)
 public class MyTests {
+	
+	public static Set<UUID> generateUUIDs(int amount) {
+		Set<UUID> uuids = new HashSet<>(amount);
+		for(int i=0; i<amount; i++)
+			uuids.add(UUID.randomUUID());
+		
+		return uuids;
+	}
+	
+	public static void main(String[] args) {
+		for(UUID uuid: generateUUIDs(240))
+			System.out.println(uuid.toString());
+	}
 
 }

@@ -1,3 +1,0 @@
-${spring-boot.version}
-${app.name}
-server_address: ${server.address}
