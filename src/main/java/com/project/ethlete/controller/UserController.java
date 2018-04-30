@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.project.ethlete.domain.Country;
 import com.project.ethlete.domain.User;
-import com.project.ethlete.emun.Gender;
 import com.project.ethlete.repository.CountryRepository;
 import com.project.ethlete.repository.UserRepository;
 import com.project.ethlete.util.ResponseState;

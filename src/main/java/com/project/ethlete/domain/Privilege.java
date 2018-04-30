@@ -1,5 +1,6 @@
 package com.project.ethlete.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -8,7 +9,7 @@ public class Privilege extends BaseEntity{
 	
 	private String name;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Description description;
 
 	public String getName() {
