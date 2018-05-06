@@ -8,6 +8,15 @@ import javax.persistence.*;
 import com.project.ethlete.emun.Gender;
 
 @Entity
+@NamedEntityGraph(
+	      name = "userWithRolesAndDepartment",
+	      attributeNodes = {@NamedAttributeNode(value = "roles", subgraph = "roleWithPrivileges"), 
+	    		  @NamedAttributeNode(value = "department", subgraph = "departmentWithParent")},
+	      subgraphs = {
+	            @NamedSubgraph(name = "roleWithPrivileges", attributeNodes = {@NamedAttributeNode("privileges")}),
+	            @NamedSubgraph(name = "departmentWithParent", attributeNodes = {@NamedAttributeNode("parent")})
+	      }
+	)
 public class User extends BaseEntity{
 
 	private UserName name;

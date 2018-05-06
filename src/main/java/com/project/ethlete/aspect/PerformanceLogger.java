@@ -36,7 +36,7 @@ public class PerformanceLogger {
         Object retVal = pjp.proceed();
         
         if(config.getAudit().isEnabled())
-        	log.error("Method: " + method + " proceed in: " + (System.currentTimeMillis() - t1) + "ms. " + "With args: " + args);
+        	log.info("Method: " + method + " proceed in: " + (System.currentTimeMillis() - t1) + "ms. " + "With args: " + args);
 
         return retVal;
 		
