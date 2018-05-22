@@ -42,15 +42,15 @@ public class UserServiceImpl implements UserService{
 		
 //		entityManager = entityManagerFactory.createEntityManager();
 		
-		EntityGraph<?> graph = entityManager.getEntityGraph("userWithRolesAndDepartment");
-
-		users = entityManager.createQuery("SELECT a FROM User a", User.class)
-				.setHint("javax.persistence.loadgraph", graph)
-				.setHint("org.hibernate.cacheable", false)
-				.getResultList();
+//		EntityGraph<?> graph = entityManager.getEntityGraph("userWithRolesAndDepartment");
+//
+//		users = entityManager.createQuery("SELECT a FROM User a", User.class)
+//				.setHint("javax.persistence.loadgraph", graph)
+//				.setHint("org.hibernate.cacheable", false)
+//				.getResultList();
 		
 		log.info("------------------------------------");
-		entityManager.close();
+//		entityManager.close();
 
 		return users;
 	}
