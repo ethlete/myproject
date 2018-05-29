@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by NUWJIANG on 5/22/2018.
  */
-//@Component
+@Component
 public class HealthCheck implements HealthIndicator {
 
     private Log log = LogFactory.getLog(HealthCheck.class);
