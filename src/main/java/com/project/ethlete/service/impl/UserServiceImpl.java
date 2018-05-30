@@ -3,7 +3,6 @@ package com.project.ethlete.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 

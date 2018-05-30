@@ -1,8 +1,15 @@
 package com.project.ethlete.domain;
 
-import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Department extends BaseEntity{
@@ -15,6 +22,7 @@ public class Department extends BaseEntity{
     private Department parent;
 
     @OneToMany(mappedBy = "parent", cascade= CascadeType.ALL, fetch= FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "parent" })
     private Set<Department> children = new HashSet<>();
 
     public String getName() {
