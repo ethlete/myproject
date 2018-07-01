@@ -40,11 +40,11 @@ public class CountryController {
 	public Country save(@RequestBody Country country) {
 		
 		// save country name
-		Country persistedCountry = countryRepository.findFirstByIsoCode(country.getIsoCode());
-		persistedCountry.setName(country.getName());
-		persistedCountry.setValidTo(new Date());
-		return countryRepository.save(persistedCountry);
-		
+//		Country persistedCountry = countryRepository.findFirstByIsoCode(country.getIsoCode());
+//		persistedCountry.setName(country.getName());
+//		persistedCountry.setValidFrom(new Date());
+//		return countryRepository.save(persistedCountry);
+		return null;
 //		int updatedCount = countryRepository.updateNameByIsoCode(country.getIsoCode(), country.getName());
 //		
 //		return countryRepository.findFirstByIsoCode(country.getIsoCode());

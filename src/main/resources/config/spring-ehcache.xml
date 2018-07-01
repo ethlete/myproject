@@ -5,12 +5,11 @@
 
   <cache alias="country"> 
     <key-type>java.lang.String</key-type> 
-    <value-type>java.lang.String</value-type> 
+    <value-type>com.project.ethlete.domain.Country</value-type> 
     <resources>
       <heap unit="entries">2000</heap> 
       <offheap unit="MB">50</offheap>
-      <disk unit="MB">200</disk>
-    </resources>
+	</resources>
     
   </cache>
   
