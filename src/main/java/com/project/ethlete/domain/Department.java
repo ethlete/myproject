@@ -3,7 +3,6 @@ package com.project.ethlete.domain;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -21,7 +20,7 @@ public class Department extends BaseEntity{
     @ManyToOne
     private Department parent;
 
-    @OneToMany(mappedBy = "parent", cascade= CascadeType.ALL, fetch= FetchType.LAZY)
+    @OneToMany(mappedBy = "parent", fetch= FetchType.LAZY)
     @JsonIgnoreProperties(value = { "parent" })
     private Set<Department> children = new HashSet<>();
 

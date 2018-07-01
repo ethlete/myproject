@@ -1,5 +1,7 @@
 package com.project.ethlete.controller;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +30,9 @@ public class UserController {
 	@Autowired
 	private CountryRepository countryRepository;
 	
+	private Log log = LogFactory.getLog(UserController.class);
+
+	
 	@RequestMapping(path="/add", method=RequestMethod.POST)
 	public String addNewUser (@RequestBody User user) {
 
@@ -40,8 +45,12 @@ public class UserController {
 
 	@GetMapping(path="/all")
 	public Iterable<User> getAllUsers() {
+		log.info("start getting all users.");
+
 		// This returns a JSON or XML with the users
-		return userService.findAll();
+		Iterable<User> users = userService.findAll();
+		log.info("end getting all users.");
+		return users;
 	}
 	
 	@RequestMapping(path="/delete", method=RequestMethod.POST)

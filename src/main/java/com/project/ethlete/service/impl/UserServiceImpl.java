@@ -3,6 +3,7 @@ package com.project.ethlete.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService{
 		log.info("------------------------------------");
 		
 //		entityManager = entityManagerFactory.createEntityManager();
-		
+//		
 //		EntityGraph<?> graph = entityManager.getEntityGraph("userWithRolesAndDepartment");
 //
 //		users = entityManager.createQuery("SELECT a FROM User a", User.class)
@@ -49,7 +50,6 @@ public class UserServiceImpl implements UserService{
 //				.getResultList();
 		
 		log.info("------------------------------------");
-//		entityManager.close();
 
 		return users;
 	}
